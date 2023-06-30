@@ -2,7 +2,7 @@ FROM node:18
 
 # Directory where Zowe CLI settings and plug-ins will be stored:
 RUN mkdir /zowe
-WORKDIR /zowe
+# WORKDIR /zowe
 ENV ZOWE_CLI_HOME=/zowe
 
 # Install requirements of Zowe CLI Secure Credential Store:
@@ -18,10 +18,6 @@ RUN npm install -g @zowe/cli@zowe-v2-lts
 # Enable daemon mode:
 RUN zowe daemon enable
 ENV PATH=/zowe/bin:${PATH}
-
-# Working directory for the users of the image:
-RUN mkdir /workspace
-WORKDIR /workspace
 
 # Use entry point that initialized dbus and gnome-keyring-daemon for Zowe secure credential store and starts Zowe CLI daemon:
 COPY ./docker-entrypoint.sh /zowe/

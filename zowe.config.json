@@ -32,7 +32,7 @@
         "base": {
             "type": "base",
             "properties": {
-                "host": "192.86.32.67",
+                "host": "",
                 "rejectUnauthorized": false
             },
             "secure": [
